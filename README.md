@@ -1,5 +1,46 @@
 ![header](docs/header.jpg)
 
+# AlphaFold3 on Blackwell GPUs (RTX 50-series / RTX Pro)
+
+These notes walk you through setting up a compatible Conda environment for running **AlphaFold2** on systems equipped with **NVIDIA RTX 5090, 5080, 5070, 5060, or RTX Pro GPUs**.
+
+> **Tested with:** CUDA 12.9 (Driver version `575.57.08`) and an RTX 5090 & RTX 5080
+
+
+## ⚙️ Prerequisites
+
+- Ensure your system has the latest NVIDIA driver installed.
+- Install **CUDA Toolkit 12.9**: [Download from NVIDIA](https://developer.nvidia.com/cuda-downloads)
+
+## 🧪 Conda Environment Setup
+
+Run the following commands to set up the environment in exactly(!) the order outlined below:
+
+```
+# Create and activate the conda environment
+conda create --prefix ./af3_blackwell python=3.11.11 -c conda-forge -c nvidia
+conda activate ./af3_blackwell
+
+# Go to your AF3 clone of this repo and execute the following steps
+pip3 install "jax[cuda12]==0.6.0" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+pip3 install -r requirements.txt 
+pip3 install --no-deps .
+
+# Finally build the CCD pickle file
+python -c "from alphafold3.build_data import build_data; build_data()"
+```
+
+If the above doesn't work, then try adding the `--no-cache-dir` argument to the `pip` commands to ensure you are installing the exact packages that we would like to have.
+
+### Notes:
+
+* CREDIT: These steps are building on [this solution by ocstx](https://github.com/google-deepmind/alphafold3/issues/394#issuecomment-2996874587)
+* Can give the warning below when using the triton flash implementation, no issues observed in the output.
+
+```UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int8```
+
+---
+
 # AlphaFold 3
 
 This package provides an implementation of the inference pipeline of AlphaFold
