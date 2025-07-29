@@ -37,16 +37,15 @@ If the above doesn't work, then try adding the `--no-cache-dir` argument to the 
 
 Rough benchmark from running this AF3 setup accross different GPUs for PDB-code 6ZFZ (a 479 tokens protein-ligand complex).
 
-| Architecture 	| GPU           	| AF3 inference (s/seed) 	|
-|--------------	|---------------	|------------------------	|
-| Ampere       	| A4000         	| 71.3                   	|
-| Ampere       	| 3090 Ti       	| 35.6                   	|
-| Lovelace     	| 4070 Ti Super 	| 35.5                   	|
-| Lovelace     	| 4080 Super    	| 31.6                   	|
-| Lovelace     	| 4090          	| 21.6                   	|
-| Blackwell    	| 5080          	| 23.9                   	|
-| Blackwell    	| 5090          	| 13.5                   	|
-
+| Architecture 	| GPU           	| Theoretical TFlops 	| AF3 inference (s/seed) 	|
+|--------------	|---------------	|--------------------	|------------------------	|
+| Ampere       	| A4000         	| 19.2               	| 71.3                   	|
+| Ampere       	| 3090 Ti       	| 40.0               	| 35.6                   	|
+| Lovelace     	| 4070 Ti Super 	| 44.1               	| 35.5                   	|
+| Lovelace     	| 4080 Super    	| 52.2               	| 31.6                   	|
+| Lovelace     	| 4090          	| 82.6               	| 21.6                   	|
+| Blackwell    	| 5080          	| 56.3               	| 23.9                   	|
+| Blackwell    	| 5090          	| 104.8              	| 13.5                   	|
 ### Notes:
 
 * CREDIT: These steps are building on [this solution by ocstx](https://github.com/google-deepmind/alphafold3/issues/394#issuecomment-2996874587)
