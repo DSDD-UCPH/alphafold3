@@ -32,6 +32,21 @@ python -c "from alphafold3.build_data import build_data; build_data()"
 
 If the above doesn't work, then try adding the `--no-cache-dir` argument to the `pip` commands to ensure you are installing the exact packages that we would like to have.
 
+
+### Benchmarks:
+
+Rough benchmark from running this AF3 setup accross different GPUs for PDB-code 6ZFZ (a 479 tokens protein-ligand complex).
+
+| Architecture 	| GPU           	| AF3 inference (s/seed) 	|
+|--------------	|---------------	|------------------------	|
+| Ampere       	| A4000         	| 71.3                   	|
+| Ampere       	| 3090 Ti       	| 35.6                   	|
+| Lovelace     	| 4070 Ti Super 	| 35.5                   	|
+| Lovelace     	| 4080 Super    	| 31.6                   	|
+| Lovelace     	| 4090          	| 21.6                   	|
+| Blackwell    	| 5080          	| 23.9                   	|
+| Blackwell    	| 5090          	| 13.5                   	|
+
 ### Notes:
 
 * CREDIT: These steps are building on [this solution by ocstx](https://github.com/google-deepmind/alphafold3/issues/394#issuecomment-2996874587)
