@@ -35,20 +35,26 @@ If the above doesn't work, then try adding the `--no-cache-dir` argument to the 
 
 ### Benchmarks:
 
-Rough benchmark from running this AF3 setup accross different GPUs for PDB-code 6ZFZ (a 479 tokens protein-ligand complex).
+Rough benchmark from running this AF3 setup accross different GPUs for PDB-code 6ZFZ (479-token protein-ligand complex).
 
 | Architecture 	| GPU           	| Theoretical TFlops 	| AF3 inference (s/seed) 	|
 |--------------	|---------------	|--------------------	|------------------------	|
+| Volta       	| Tesla V100         	| 28.3               	| 94.1                   	|
 | Ampere       	| A4000         	| 19.2               	| 71.3                   	|
 | Ampere       	| 3090 Ti       	| 40.0               	| 35.6                   	|
+| Ampere     	| A100 PCIe          	| 78.0               	| 21.5                   	|
 | Lovelace     	| 4070 Ti Super 	| 44.1               	| 35.5                   	|
 | Lovelace     	| 4080 Super    	| 52.2               	| 31.6                   	|
 | Lovelace     	| 4090          	| 82.6               	| 21.6                   	|
+| Lovelace     	| L40S          	| 91.6               	| 24.9                   	|
+| Hopper     	| H100 SXM        	| 267.6 (4:1)               	| 10.4                   	|
 | Blackwell    	| 5080          	| 56.3               	| 23.9                   	|
 | Blackwell    	| 5090          	| 104.8              	| 13.5                   	|
+| Blackwell    	| B200 SXM         	| 248.3 (4:1)              	| 7.2                   	|
 ### Notes:
 
-* CREDIT: These steps are building on [this solution by ocstx](https://github.com/google-deepmind/alphafold3/issues/394#issuecomment-2996874587)
+* CREDIT: These steps are building on [this solution by ocstx](https://github.com/google-deepmind/alphafold3/issues/394#issuecomment-2996874587).
+* When running on a system with CUDA 12.8 you may need to run `pip install nvidia-cublas-cu12==12.8.3.14` to prevent a segmentation fault.
 * Can give the warning below when using the triton flash implementation, no issues observed in the output.
 
 ```UserWarning: tl.where with a non-boolean condition is deprecated and will error out in a future triton release. Got int8```
