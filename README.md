@@ -2,7 +2,7 @@
 
 # AlphaFold3 on Blackwell GPUs (RTX 50-series / RTX Pro)
 
-These notes walk you through setting up a compatible Conda environment for running **AlphaFold2** on systems equipped with **NVIDIA RTX 5090, 5080, 5070, 5060, or RTX Pro GPUs**.
+These notes walk you through setting up a compatible Conda environment for running **AlphaFold3** on systems equipped with **NVIDIA RTX 5090/5080/5070/5060, RTX Pro, or server B100/B200 GPUs**.
 
 > **Tested with:** CUDA 12.9 (Driver version `575.57.08`) and an RTX 5090 & RTX 5080
 
@@ -47,10 +47,14 @@ Rough benchmark from running this AF3 setup accross different GPUs for PDB-code 
 | Lovelace     	| 4080 Super    	| 52.2               	| 31.6                   	|
 | Lovelace     	| 4090          	| 82.6               	| 21.6                   	|
 | Lovelace     	| L40S          	| 91.6               	| 24.9                   	|
+| Hopper     	| H100 PCIe        	| 204.9 (4:1)               	| 14.6                   	|
 | Hopper     	| H100 SXM        	| 267.6 (4:1)               	| 10.4                   	|
+| Hopper     	| H200 SXM        	| 267.6 (4:1)               	| 9.1                   	|
 | Blackwell    	| 5080          	| 56.3               	| 23.9                   	|
 | Blackwell    	| 5090          	| 104.8              	| 13.5                   	|
+| Blackwell    	| Pro 6000 (600W)    	| 126.0              	| 11.5                   	|
 | Blackwell    	| B200 SXM         	| 248.3 (4:1)              	| 7.2                   	|
+
 ### Notes:
 
 * CREDIT: These steps are building on [this solution by ocstx](https://github.com/google-deepmind/alphafold3/issues/394#issuecomment-2996874587).
