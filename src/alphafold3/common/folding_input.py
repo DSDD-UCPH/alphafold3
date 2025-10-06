@@ -1451,7 +1451,9 @@ def load_fold_inputs_from_dir(input_dir: pathlib.Path) -> Iterator[Input]:
   Yields:
     The fold inputs from all JSON files in the input directory.
   """
-  for file_path in sorted(input_dir.glob('*.json')):
+  file_list = sorted(input_dir.glob('*.json'))
+  random.shuffle(file_list)
+  for file_path in file_list:
     if not file_path.is_file():
       continue
 

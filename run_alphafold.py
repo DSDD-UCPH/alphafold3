@@ -691,6 +691,7 @@ def process_fold_input(
       and os.path.exists(output_dir)
       and os.listdir(output_dir)
   ):
+    return # do  not overwrite or repeat existing results
     new_output_dir = (
         f'{output_dir}_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}'
     )
