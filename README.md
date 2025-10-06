@@ -46,6 +46,7 @@ Rough benchmark from running this AF3 setup accross different GPUs for PDB-code 
 | Lovelace     	| 4070 Ti Super 	| 44.1               	| 35.5                   	|
 | Lovelace     	| 4080 Super    	| 52.2               	| 31.6                   	|
 | Lovelace     	| 4090          	| 82.6               	| 21.6                   	|
+| Lovelace     	| 6000	Ada	     	| 91.1               	| 20.8                   	|
 | Lovelace     	| L40S          	| 91.6               	| 24.9                   	|
 | Hopper     	| H100 PCIe        	| 204.9 (4:1)               	| 14.6                   	|
 | Hopper     	| H100 SXM        	| 267.6 (4:1)               	| 10.4                   	|
